@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <files-path
+        name="pdf"
+        path="../app_pdf/"
+        />
+    <cache-path
+        name="pdf"
+        path="/app_pdf"
+        />
+    <external-cache-path
+        name="pdf"
+        path="/"
+        />
+    <external-files-path
+        name="pdf"
+        path="../app_pdf/"
+        />
+    <external-media-path
+        name="pdf"
+        path="../app_pdf/"
+        />
+</paths>
