@@ -13,9 +13,10 @@ DocScanner is an Android application developed using Kotlin and Jetpack Compose 
 
 ## Screenshots
 
-![Screenshot1](path_to_screenshot1)
-![Screenshot2](path_to_screenshot2)
-![Screenshot3](path_to_screenshot3)
+<img src="/screenshots/ss1.png" alt="App Screenshot"
+width="300">
+<img src="/screenshots/ss2.png" alt="App Screenshot" width="300">
+<img src="/screenshots/ss3.png" alt="App Screenshot" width="300">
 
 ## Installation
 
