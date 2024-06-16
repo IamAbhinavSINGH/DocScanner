@@ -29,6 +29,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -81,11 +82,11 @@ fun WhatsNewScreen(
         contentColor = MaterialTheme.colorScheme.surface
 
     ){paddingValues ->
-//        val scrollState =  rememberScrollState()
+        val scrollState =  rememberScrollState()
         Card(
             modifier = Modifier
                 .fillMaxSize()
-//                .verticalScroll(enabled = true, state = scrollState)
+                .verticalScroll(enabled = true, state = scrollState)
                 .padding(paddingValues = paddingValues)
                 .clip(
                     RoundedCornerShape(topEnd = 20.dp, topStart = 20.dp)
@@ -101,7 +102,7 @@ fun WhatsNewScreen(
                     .padding(20.dp),
                 text = "There is nothing new as of now, you will be notified about new updates here as soon as they come out.",
                 fontSize = 18.sp,
-                color = MaterialTheme.colorScheme.secondary,
+                color = Color.Black,
                 fontWeight = FontWeight.Normal
             )
         }

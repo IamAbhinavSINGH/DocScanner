@@ -35,6 +35,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -96,8 +97,9 @@ fun ArchivedPdfScreen(
                            .padding(24.dp),
                        text = "Your archived documents will be stored here for 30 days",
                        style = MaterialTheme.typography.labelMedium,
-                       color = MaterialTheme.colorScheme.secondary,
-                       fontSize = 18.sp
+                       color = Color.Black,
+                       fontSize = 18.sp,
+                       fontWeight = FontWeight.Bold
                    )
                }
            }
@@ -137,8 +139,8 @@ fun ArchivedPdfScreen(
                   LazyVerticalGrid(
                       modifier = Modifier
                           .fillMaxSize(),
-                      columns = GridCells.Adaptive(minSize = 100.dp),
-                      contentPadding = PaddingValues(8.dp),
+                      columns = GridCells.Adaptive(minSize = 120.dp),
+                      contentPadding = PaddingValues(16.dp),
                       horizontalArrangement = Arrangement.SpaceAround
                   ) {
                       items(state.archivedPdfList){pdf->
@@ -178,6 +180,7 @@ fun HandlePdfClick(
         pdf = pdf,
         onRestoreBtnClicked = {
             viewModel.onEvent(ArchivedEvent.RestorePdf(pdf))
+            onCancelClicked()
         },
         onCancelClicked = {
             onCancelClicked()

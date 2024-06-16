@@ -173,7 +173,9 @@ fun SetUpScaffold(
             CreatePdfToolbar(
                 modifier = Modifier.fillMaxWidth(),
                 onSearchClicked = { navController.navigate(Screen.SearchPdfScreen.route) },
-                onOrderClicked = {viewModel.onEvent(CreatePdfEvent.ToggleOrderSection)},
+                onOrderClicked = {
+                    viewModel.onEvent(CreatePdfEvent.ToggleOrderSection)
+                },
                 onNavigationDrawerClicked = { onNavigationDrawerClicked() },
                 onOrderChanged = {pdfOrder->
                     viewModel.onEvent(CreatePdfEvent.Order(pdfOrder))

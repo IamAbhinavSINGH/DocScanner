@@ -10,8 +10,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Sort
+import androidx.compose.material.icons.automirrored.outlined.Sort
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Sort
+import androidx.compose.material.icons.outlined.Sort
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -50,6 +54,9 @@ fun CreatePdfToolbar(
     Column(
         modifier = modifier
     ){
+
+        val orderIcon = if(isOrderVisible) Icons.AutoMirrored.Filled.Sort else Icons.AutoMirrored.Outlined.Sort
+
         TopAppBar(
             modifier = Modifier.fillMaxWidth(),
             colors = TopAppBarDefaults.topAppBarColors(
@@ -92,16 +99,15 @@ fun CreatePdfToolbar(
 
                 IconButton(onClick = { onOrderClicked() }) {
                     Icon(
-                        painter = painterResource(id = R.drawable.ic_sort),
-                        contentDescription = "sort",
-                        tint = Color.White
+                        imageVector = orderIcon,
+                        contentDescription = "Sort"
                     )
                 }
             },
             scrollBehavior = scrollBehavior
         )
 
-        val isOrderSectionVisible = if(scrollBehavior.isPinned) false else isOrderVisible
+        val isOrderSectionVisible = if(scrollBehavior.state.collapsedFraction > 0.6f) false else isOrderVisible
 
         AnimatedVisibility(
             visible = isOrderSectionVisible
