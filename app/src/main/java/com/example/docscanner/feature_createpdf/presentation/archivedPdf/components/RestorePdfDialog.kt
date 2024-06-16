@@ -8,7 +8,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -40,37 +43,39 @@ fun RestorePdfDialog(
         Card(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(24.dp),
+                .padding(horizontal = 24.dp),
             colors = CardDefaults.cardColors(
                 containerColor = MaterialTheme.colorScheme.primary,
                 contentColor = MaterialTheme.colorScheme.secondary,
             ),
-            shape = RoundedCornerShape(16.dp)
+            shape = RoundedCornerShape(8.dp)
         ) {
             Column(
-                modifier = Modifier,
+                modifier = Modifier.verticalScroll(
+                    state = rememberScrollState(),
+                    enabled = true
+                ),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ){
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     text = "Restore PDF",
                     color = MaterialTheme.colorScheme.secondary,
                     fontSize = 16.sp,
-                    fontWeight = FontWeight.SemiBold,
+                    fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center
                 )
-                Spacer(modifier = Modifier.height(8.dp))
-
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .padding(horizontal = 4.dp)
                 ) {
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(200.dp),
-                        shape = RoundedCornerShape(16.dp)
+                            .height(180.dp),
+                        shape = RoundedCornerShape(8.dp)
                     ) {
                         AsyncImage(
                             modifier = modifier.fillMaxSize(),
@@ -100,14 +105,16 @@ fun RestorePdfDialog(
                     fontWeight = FontWeight.Normal,
                     textAlign = TextAlign.Center
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 16.dp),
                     horizontalArrangement = Arrangement.End,
                     verticalAlignment = androidx.compose.ui.Alignment.CenterVertically
                 ) {
                     TextButton(
-                        modifier = Modifier.padding(8.dp),
+                        modifier = Modifier.padding(horizontal = 8.dp),
                         onClick = { onCancelClicked() },
                         colors = ButtonDefaults.buttonColors(
                             containerColor = Color.Red,
@@ -120,9 +127,9 @@ fun RestorePdfDialog(
                             color = MaterialTheme.colorScheme.secondary,
                         )
                     }
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.width(8.dp))
                     TextButton(
-                        modifier = Modifier.padding(8.dp),
+                        modifier = Modifier.padding(horizontal = 8.dp),
                         onClick = { onRestoreBtnClicked() },
                         colors = ButtonDefaults.buttonColors(
                             containerColor = MaterialTheme.colorScheme.surface,

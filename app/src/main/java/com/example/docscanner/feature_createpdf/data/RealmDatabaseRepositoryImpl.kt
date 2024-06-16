@@ -22,7 +22,8 @@ class RealmDatabaseRepositoryImpl(private val realm: Realm): RealmDatabaseRepo {
 
         val filter = "titleName LIKE $0 OR description LIKE $0"
 
-        return realm.query<Pdf>(filter, "*$queryParam*").asFlow().map { it.list }
+        return realm.query<Pdf>("isArchived == $0" , false)
+            .query(filter, "*$queryParam*",false).asFlow().map { it.list }
     }
 
     override fun getSearchedPdfList(): Flow<List<Pdf>> {
